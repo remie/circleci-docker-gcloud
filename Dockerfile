@@ -20,8 +20,7 @@ RUN apt-get update -y; \
 	unzip google-cloud-sdk.zip; \
 	rm google-cloud-sdk.zip; \
 	google-cloud-sdk/install.sh --usage-reporting=true --path-update=true --bash-completion=true --rc-path=/.bashrc --additional-components kubectl alpha beta; \
-	google-cloud-sdk/bin/gcloud config set --installation component_manager/disable_update_check true; \
-	pwd;
+	google-cloud-sdk/bin/gcloud config set --installation component_manager/disable_update_check true;
 
 ENV PATH /google-cloud-sdk/bin:$PATH
 
