@@ -12,10 +12,7 @@ RUN apt-get update -y; \
 	python \
 	unzip \
 	curl; \
-	curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz; \
-    tar xzvf docker-17.04.0-ce.tgz; \
-	mv docker/docker /usr/local/bin; \
-  	rm -r docker docker-17.04.0-ce.tgz;\
+	curl -fsSL get.docker.com | /bin/sh; \
 	curl -fsSLO https://dl.google.com/dl/cloudsdk/channels/rapid/google-cloud-sdk.zip; \
 	unzip google-cloud-sdk.zip; \
 	rm google-cloud-sdk.zip; \
