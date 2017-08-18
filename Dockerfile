@@ -17,8 +17,12 @@ RUN apt-get update -y; \
 	unzip google-cloud-sdk.zip; \
 	rm google-cloud-sdk.zip; \
 	google-cloud-sdk/install.sh --usage-reporting=true --path-update=true --bash-completion=true --rc-path=/.bashrc --additional-components kubectl alpha beta; \
-	google-cloud-sdk/bin/gcloud config set --installation component_manager/disable_update_check true;
+	google-cloud-sdk/bin/gcloud config set --installation component_manager/disable_update_check true; \
+	export PATH=/google-cloud-sdk/bin:$PATH; \
+	docker --version; \
+	gcloud --version; \
+	kubectl version;
 
-ENV PATH /google-cloud-sdk/bin:$PATH
+ENV PATH=/google-cloud-sdk/bin:$PATH;
 
 CMD ["/bin/bash"]
