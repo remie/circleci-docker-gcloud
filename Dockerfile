@@ -23,6 +23,6 @@ RUN apt-get update -y; \
 	gcloud --version; \
 	kubectl version --client;
 
-ENV PATH=/google-cloud-sdk/bin:$PATH;
+ENV PATH=/google-cloud-sdk/bin:$PATH
 
 CMD ["/bin/bash"]
