@@ -21,7 +21,7 @@ RUN apt-get update -y; \
 	export PATH=/google-cloud-sdk/bin:$PATH; \
 	docker --version; \
 	gcloud --version; \
-	kubectl version;
+	kubectl version --client;
 
 ENV PATH=/google-cloud-sdk/bin:$PATH;
 
