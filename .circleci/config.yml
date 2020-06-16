@@ -1,0 +1,27 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/base
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: 
+          name: Build & push
+          command: |
+            echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
+            docker build -t remie/circleci-docker-gcloud:latest .
+            docker push remie/circleci-docker-gcloud:latest
+
+workflows:
+  version: 2
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
